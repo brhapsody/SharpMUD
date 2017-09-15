@@ -14,6 +14,8 @@ namespace SharpMUD.AutofacModules
             // ServerConfigManager, ServerConfigRepository
             builder.RegisterModule<ServerConfigModule>();
 
+            builder.RegisterModule<ConnectionManagerModule>();
+
             return builder.Build();
         }
     }
