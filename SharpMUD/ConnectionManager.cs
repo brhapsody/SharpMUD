@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using log4net;
 using SharpMUD.Interfaces;
+using System;
 
 namespace SharpMUD
 {
-    enum ConnectedStates
+    public enum ConnectedStates
     {
         ConnectedNegotiating,
         ConnectedPlaying
@@ -12,13 +13,22 @@ namespace SharpMUD
 
     public class ConnectionManager : IConnectionManager
     {
+        private readonly Func<ConnectionManager, Connection> _connectionFactory;
         private static readonly ILog log = LogManager.GetLogger(typeof(ConnectionManager));
         public List<Connection> ConnectedList;
 
-        public ConnectionManager()
+        public ConnectionManager(Func<ConnectionManager, Connection> connectionFactory)
         {
+            _connectionFactory = connectionFactory;
             ConnectedList = new List<Connection>();
             log.Debug("<-- Instantiated.");
+        }
+
+        public Connection NewConnection()
+        {
+            var connection = _connectionFactory(this);
+            ConnectedList.Add(connection);
+            return connection;
         }
 
         public void PushOutboundBuffers()

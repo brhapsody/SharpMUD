@@ -15,6 +15,7 @@ namespace SharpMUD
         private bool shutdown = false;
         private readonly IServerConfigManager _serverConfigManager;
         private readonly IConnectionManager _connectionManager;
+        private readonly ISocketServer _socketServer;
 
         private static readonly ILog log = LogManager.GetLogger(typeof(Server));
 
@@ -32,18 +33,24 @@ namespace SharpMUD
             server.Startup();
         }
 
-        public Server(IServerConfigManager configManager, IConnectionManager connectionManager)
+        public Server(IServerConfigManager configManager, IConnectionManager connectionManager, ISocketServer socketServer)
         {
             _serverConfigManager = configManager;
             _connectionManager = connectionManager;
+            _socketServer = socketServer;
             log.Debug("<-- Instantiated");
         }
 
         void Startup()
         {
             _serverConfigManager.LoadSettings();
+            
+            //
             // load all shit from DB as needed
 
+
+
+            _socketServer.Init();
             // now for the main loop
             while (!shutdown)
             {
