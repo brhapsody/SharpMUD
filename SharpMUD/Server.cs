@@ -46,7 +46,7 @@ namespace SharpMUD
             _serverConfigManager.LoadSettings();
             
             //
-            // load all shit from DB as needed
+            // load all from DB as needed
 
 
 
