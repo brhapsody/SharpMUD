@@ -6,7 +6,7 @@ namespace SharpMUD.Interfaces
     {
         void ReadInboundBuffers();
         void PushOutboundBuffers();
-        Connection NewConnection();
+        IConnection NewConnection();
 
     }
 }

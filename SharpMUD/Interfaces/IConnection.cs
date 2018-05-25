@@ -4,10 +4,10 @@
     {
         int ConnectedState { get; set; }
 
-        void ProcessInput(Connection c);
-        void ProcessOutput(Connection c);
+        void ProcessInput();
+        void ProcessOutput();
         void ReadFromConnection(string argument);
         string WriteToConnection();
-
+        void AppendOutput(string argument);
     }
 }

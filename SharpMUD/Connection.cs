@@ -26,27 +26,31 @@ namespace SharpMUD
             log.Debug("<-- Instantiated.");
         }
 
-        public void ProcessInput(Connection c)
+        public void AppendOutput(string argument)
+        {
+            _outBuffer += argument;
+        }
+
+        public void ProcessInput()
         {
             // a command is in the inbound, let's process it
-            if (!String.IsNullOrEmpty(c._inString))
-                CommandParser.Parse(c._inString, c);
+            if (!String.IsNullOrEmpty(_inString))
+                CommandParser.Parse(_inString, this);
 
             // queue up the next command for the next cycle
             if (_inStringBuffer.Count != 0)
                 _inString = _inStringBuffer.Dequeue();
             else
                 _inString = "";
-
         }
 
-        public void ProcessOutput(Connection c)
+        public void ProcessOutput()
         {
             // I have stuff to send, so put it in the wicket for the socket to pick it up
-            if (!String.IsNullOrEmpty(c._outBuffer))
+            if (!String.IsNullOrEmpty(_outBuffer))
             {
-                c._outToSocket += c._outBuffer;
-                c._outBuffer = "";
+                _outToSocket += _outBuffer;
+                _outBuffer = "";
             }
         }
 
@@ -54,7 +58,6 @@ namespace SharpMUD
         {
             if (!String.IsNullOrEmpty(argument))
               _inStringBuffer.Enqueue(argument);
-
         }
 
         public string WriteToConnection()
@@ -65,7 +68,6 @@ namespace SharpMUD
                 _outToSocket = "";
                 return result;
             }
-
             return null;
         }
 
