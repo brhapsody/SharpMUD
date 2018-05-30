@@ -12,7 +12,6 @@ namespace SharpMUD.AutofacModules
         {
             builder.RegisterType<ConnectionManager>().As<IConnectionManager>().SingleInstance();
             builder.RegisterType<Connection>().As<IConnection>();
-            builder.RegisterType<ConsoleSocket>().As<ISocketServer>();
             //builder.RegisterType<Connection>().InstancePerDependency();
 
             base.Load(builder);

@@ -11,7 +11,7 @@ using log4net.Repository;
 
 namespace SharpMUD
 {
-    class Server
+    public class Server
     {
         private bool shutdown = false;
         private readonly IServerConfigManager _serverConfigManager;
@@ -19,20 +19,6 @@ namespace SharpMUD
         private readonly ISocketServer _socketServer;
 
         private static readonly ILog log = LogManager.GetLogger(typeof(Server));
-
-        // main configures the Autofac container and creates it, then sends flow to the actual server
-        static void Main()
-        {
-            // start up logging
-            XmlConfigurator.Configure(LogManager.GetRepository(Assembly.GetEntryAssembly()), new FileInfo("logconfig.xml"));
-            
-            log.Info("SharpMUD is starting up...");
-
-            var container = ModuleLoader.BuildContainer();
-
-            Server server = container.Resolve<Server>();
-            server.Startup();
-        }
 
         public Server(IServerConfigManager configManager, IConnectionManager connectionManager, ISocketServer socketServer)
         {
@@ -42,8 +28,9 @@ namespace SharpMUD
             log.Debug("<-- Instantiated");
         }
 
-        void Startup()
+        public void Startup()
         {
+            log.Info("SharpMUD is starting up...");
             _serverConfigManager.LoadSettings();
             
             //

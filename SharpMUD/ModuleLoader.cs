@@ -16,6 +16,8 @@ namespace SharpMUD.AutofacModules
 
             builder.RegisterModule<ConnectionManagerModule>();
 
+            builder.RegisterModule<ConsoleSocketModule>();
+
             return builder.Build();
         }
     }
