@@ -1,4 +1,4 @@
-﻿using SharpMUD.Interfaces;
+﻿using SharpMUD.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;

@@ -1,5 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
-using SharpMUD.Interfaces;
+using SharpMUD.Core.Interfaces;
 using System.Threading;
 using System;
 using log4net;

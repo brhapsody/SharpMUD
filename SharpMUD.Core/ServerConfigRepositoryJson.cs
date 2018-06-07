@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using log4net;
 using Newtonsoft.Json;
-using SharpMUD.Interfaces;
+using SharpMUD.Core.Interfaces;
 using SharpMUD.Models;
 
 namespace SharpMUD

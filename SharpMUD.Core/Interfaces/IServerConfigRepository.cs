@@ -1,6 +1,6 @@
 ﻿using SharpMUD.Models;
 
-namespace SharpMUD.Interfaces
+namespace SharpMUD.Core.Interfaces
 {
     public interface IServerConfigRepository
     {

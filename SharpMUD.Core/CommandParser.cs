@@ -1,15 +1,15 @@
-﻿using SharpMUD.Interfaces;
-using System;
+﻿using System;
 using System.Text;
+using SharpMUD.Core.Interfaces;
 
 namespace SharpMUD
 {
-    public static class CommandParser
+    public class CommandManager : ICommandManager
     {
         public static void Parse(string command, IConnection c)
         {
             string result = $"I parsed: {command}";
-            c.AppendOutput(result);;
+            c.AppendOutput(result);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using Autofac;
-using SharpMUD.Interfaces;
+using SharpMUD.Core.Interfaces;
 
 namespace SharpMUD.AutofacModules
 {

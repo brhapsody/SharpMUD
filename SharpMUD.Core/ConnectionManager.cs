@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using log4net;
-using SharpMUD.Interfaces;
+using SharpMUD.Core.Interfaces;
 using System;
 
 namespace SharpMUD

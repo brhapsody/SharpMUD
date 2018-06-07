@@ -1,13 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using Autofac;
-using SharpMUD.AutofacModules;
-using SharpMUD.Interfaces;
+﻿using SharpMUD.Core.Interfaces;
 using log4net;
-using log4net.Appender;
-using log4net.Config;
-using log4net.Repository;
 
 namespace SharpMUD
 {
@@ -17,14 +9,16 @@ namespace SharpMUD
         private readonly IServerConfigManager _serverConfigManager;
         private readonly IConnectionManager _connectionManager;
         private readonly ISocketServer _socketServer;
+        private readonly ICommandManager _commandManager;
 
         private static readonly ILog log = LogManager.GetLogger(typeof(Server));
 
-        public Server(IServerConfigManager configManager, IConnectionManager connectionManager, ISocketServer socketServer)
+        public Server(IServerConfigManager configManager, IConnectionManager connectionManager, ISocketServer socketServer, ICommandManager commandManager)
         {
             _serverConfigManager = configManager;
             _connectionManager = connectionManager;
             _socketServer = socketServer;
+            _commandManager = commandManager;
             log.Debug("<-- Instantiated");
         }
 

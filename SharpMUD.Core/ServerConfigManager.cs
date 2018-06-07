@@ -1,5 +1,5 @@
 ﻿using System;
-using SharpMUD.Interfaces;
+using SharpMUD.Core.Interfaces;
 using SharpMUD.Models;
 using System.Reflection;
 using log4net;
