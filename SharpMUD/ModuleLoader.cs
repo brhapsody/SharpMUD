@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using SharpMUD.Core;
 
 namespace SharpMUD.AutofacModules
 {
@@ -14,7 +15,7 @@ namespace SharpMUD.AutofacModules
             // ServerConfigManager, ServerConfigRepository
             builder.RegisterModule<ServerConfigModule>();
 
-            builder.RegisterModule<ConnectionManagerModule>();
+            builder.RegisterModule<ManagersModule>();
 
             builder.RegisterModule<ConsoleSocketModule>();
 

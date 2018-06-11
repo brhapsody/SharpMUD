@@ -1,4 +1,4 @@
-﻿namespace SharpMUD.Core.Interfaces
+﻿namespace SharpMUD.Core
 {
     public interface ISocketServer
     {

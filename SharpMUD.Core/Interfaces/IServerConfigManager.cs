@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SharpMUD.Core.Interfaces
+namespace SharpMUD.Core
 {
     public interface IServerConfigManager
     {

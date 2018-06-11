@@ -1,8 +1,8 @@
-﻿namespace SharpMUD.Core.Interfaces
+﻿namespace SharpMUD.Core
 {
     public interface IConnection
     {
-        int ConnectedState { get; set; }
+        ConnectedStates ConnectedState { get; set; }
 
         void ProcessInput();
         void ProcessOutput();

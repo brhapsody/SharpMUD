@@ -1,10 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-using SharpMUD.Core.Interfaces;
-using System.Threading;
+﻿using System.Threading;
 using System;
 using log4net;
 
-namespace SharpMUD
+namespace SharpMUD.Core
 {
     public class ConsoleSocket : ISocketServer
     {
@@ -33,7 +31,7 @@ namespace SharpMUD
             writerThread = new Thread(writer);
             writerThread.Start();
             log.Debug("Initialized console writer.");
-            _connection.ConnectedState = (int) ConnectedStates.ConnectedPlaying;
+            _connection.ConnectedState = ConnectedStates.ConnectedPlaying;
         }
 
         private void Write()

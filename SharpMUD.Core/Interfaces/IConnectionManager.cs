@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SharpMUD.Core.Interfaces
+namespace SharpMUD.Core
 {
     public interface IConnectionManager
     {

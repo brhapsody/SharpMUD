@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using log4net;
 using Newtonsoft.Json;
-using SharpMUD.Core.Interfaces;
 using SharpMUD.Models;
 
-namespace SharpMUD
+namespace SharpMUD.Core
 {
     public class ServerConfigRepositoryJson : IServerConfigRepository
     {

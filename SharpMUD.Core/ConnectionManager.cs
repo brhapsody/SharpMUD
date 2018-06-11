@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using log4net;
-using SharpMUD.Core.Interfaces;
+using SharpMUD.Core;
 using System;
 
 namespace SharpMUD
 {
     public enum ConnectedStates
     {
-        ConnectedNegotiating,
-        ConnectedPlaying
+        ConnectedNegotiating = 0,
+        ConnectedPlaying = 1
     }
 
     public class ConnectionManager : IConnectionManager
@@ -35,7 +35,7 @@ namespace SharpMUD
         {
             foreach (IConnection c in ConnectedList)
             {
-                if (c.ConnectedState < (int) ConnectedStates.ConnectedPlaying)
+                if (c.ConnectedState == ConnectedStates.ConnectedNegotiating)
                     continue;
 
                 c.ProcessOutput();
@@ -47,7 +47,7 @@ namespace SharpMUD
             foreach (IConnection c in ConnectedList)
             {
                 // not here yet!
-                if (c.ConnectedState < (int) ConnectedStates.ConnectedPlaying)
+                if (c.ConnectedState == ConnectedStates.ConnectedNegotiating)
                     continue;
 
                 // read next command and parse it

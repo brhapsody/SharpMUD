@@ -4,6 +4,7 @@ using Autofac;
 using log4net;
 using log4net.Config;
 using SharpMUD.AutofacModules;
+using SharpMUD.Core;
 
 namespace SharpMUD
 {

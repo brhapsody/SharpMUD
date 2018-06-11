@@ -1,10 +1,9 @@
 ﻿using System;
-using SharpMUD.Core.Interfaces;
 using SharpMUD.Models;
 using System.Reflection;
 using log4net;
 
-namespace SharpMUD
+namespace SharpMUD.Core
 {
     public class ServerConfigManager : IServerConfigManager
     {

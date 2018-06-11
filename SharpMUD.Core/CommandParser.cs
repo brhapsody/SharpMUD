@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Text;
-using SharpMUD.Core.Interfaces;
 
-namespace SharpMUD
+namespace SharpMUD.Core
 {
     public class CommandManager : ICommandManager
     {

@@ -1,7 +1,6 @@
-﻿using SharpMUD.Core.Interfaces;
-using log4net;
+﻿using log4net;
 
-namespace SharpMUD
+namespace SharpMUD.Core
 {
     public class Server
     {

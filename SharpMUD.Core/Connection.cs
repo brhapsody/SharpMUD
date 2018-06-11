@@ -1,11 +1,10 @@
-﻿using SharpMUD.Core.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Runtime.CompilerServices;
 using log4net;
 
-namespace SharpMUD
+namespace SharpMUD.Core
 {
     public class Connection : IConnection
     {
@@ -17,7 +16,7 @@ namespace SharpMUD
         public string _outBuffer;
         private string _outToSocket;
 
-        public int ConnectedState { get; set; }
+        public ConnectedStates ConnectedState { get; set; }
 
         public Connection(IConnectionManager connectionManager)
         {
@@ -35,7 +34,7 @@ namespace SharpMUD
         {
             // a command is in the inbound, let's process it
             if (!String.IsNullOrEmpty(_inString))
-                CommandParser.Parse(_inString, this);
+                CommandManager.Parse(_inString, this);
 
             // queue up the next command for the next cycle
             if (_inStringBuffer.Count != 0)

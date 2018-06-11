@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharpMUD.Core.Interfaces
+namespace SharpMUD.Core
 {
     public interface ICommandManager
     {

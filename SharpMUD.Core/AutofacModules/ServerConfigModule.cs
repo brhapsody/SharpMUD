@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using SharpMUD.Core.Interfaces;
+using SharpMUD.Core;
 
 namespace SharpMUD.AutofacModules
 {
@@ -8,9 +8,7 @@ namespace SharpMUD.AutofacModules
         public string ConfigType { get; set; }
 
         protected override void Load(ContainerBuilder builder)
-        {
-            builder.RegisterType<ServerConfigManager>().As<IServerConfigManager>().SingleInstance();
-
+        { 
             switch(ConfigType)
             {
                 default:

@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using SharpMUD.Core.Interfaces;
+using SharpMUD.Core;
 
 namespace SharpMUD.AutofacModules
 {
